@@ -1,0 +1,22 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_php5.c>
+php_flag    register_globals       Off
+php_flag    magic_quotes_gpc       Off
+php_flag    magic_quotes_runtime   Off
+
+php_flag    display_errors         On
+php_flag    log_errors             Off
+
+php_value   upload_max_filesize    25M
+php_value   post_max_size          30M
+php_value   memory_limit           128M
+</IfModule>
+
+RewriteEngine On 
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php
